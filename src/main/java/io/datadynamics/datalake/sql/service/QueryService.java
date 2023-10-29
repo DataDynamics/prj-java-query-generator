@@ -26,6 +26,24 @@ public class QueryService {
     }
 
     private String where(QueryRequest request) {
+        List<String> conditionColumnNames = new ArrayList<>();
+        for (Condition condition : request.getConditions()) {
+            conditionColumnNames.add(condition.getColumnName());
+        }
+
+        boolean partitionExists = (request.getPartitions() != null && request.getPartitions().size() > 0) ? false : true;
+        List<String> partitions = request.getPartitions();
+        for (String partition : partitions) {
+            if (conditionColumnNames.contains(partition)) {
+                partitionExists = true;
+                break;
+            }
+        }
+
+        if (!partitionExists) {
+            throw new IllegalArgumentException("파티션 컬럼에 대한 조건이 누락되어 있습니다.");
+        }
+
         List<String> wheres = new ArrayList<>();
         List<Condition> conditions = request.getConditions();
         for (Condition condition : conditions) {
