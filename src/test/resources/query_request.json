@@ -9,6 +9,7 @@
     {
       "columnName": "A",
       "operator": "IN",
+      "dataType": "STRING",
       "values": [
         "A1",
         "A2",
@@ -17,6 +18,7 @@
     },
     {
       "columnName": "B",
+      "dataType": "INTEGER",
       "operator": "EQUAL",
       "values": [
         "B1"
@@ -24,6 +26,7 @@
     },
     {
       "columnName": "C",
+      "dataType": "TIMESTAMP",
       "operator": "BETWEEN",
       "values": [
         "C1",

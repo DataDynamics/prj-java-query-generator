@@ -1,6 +1,7 @@
 package io.datadynamics.datalake.sql.service.where.impl;
 
 import io.datadynamics.datalake.sql.model.Condition;
+import io.datadynamics.datalake.sql.model.DataType;
 import io.datadynamics.datalake.sql.service.where.Where;
 import org.springframework.util.Assert;
 
@@ -15,7 +16,12 @@ public class BetweenWhere implements Where {
 
         String columnName = condition.getColumnName();
         List<String> values = condition.getValues();
-        return String.format("%s BETWEEN '%s' AND '%s'", columnName, condition.getValues().get(0), condition.getValues().get(1));
+        if (condition.getDataType() == DataType.TIMESTAMP
+                || condition.getDataType() == DataType.DATE) {
+            return String.format("%s >= '%s' AND %s <= '%s'", columnName, values.get(0).trim(), columnName, values.get(1).trim());
+        } else {
+            return String.format("%s BETWEEN '%s' AND '%s'", columnName, values.get(0).trim(), values.get(1).trim());
+        }
     }
 
 }

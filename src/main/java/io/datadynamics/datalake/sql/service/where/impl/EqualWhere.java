@@ -15,7 +15,7 @@ public class EqualWhere implements Where {
 
         String columnName = condition.getColumnName();
         List<String> values = condition.getValues();
-        return String.format("%s = '%s'", columnName, values.get(0));
+        return String.format("%s = '%s'", columnName, values.get(0).trim());
     }
 
 }

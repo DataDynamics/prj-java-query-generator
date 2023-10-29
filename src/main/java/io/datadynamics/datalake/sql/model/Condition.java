@@ -1,19 +1,25 @@
 package io.datadynamics.datalake.sql.model;
 
-import com.fasterxml.jackson.annotation.*;
-
-import javax.annotation.processing.Generated;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "columnName",
         "operator",
+        "dataType",
         "values"
 })
+@Generated("jsonschema2pojo")
 public class Condition {
 
     @JsonProperty("columnName")
@@ -21,6 +27,9 @@ public class Condition {
 
     @JsonProperty("operator")
     private String operator;
+
+    @JsonProperty("dataType")
+    private DataType dataType;
 
     @JsonProperty("values")
     private List<String> values = new ArrayList<String>();
@@ -55,6 +64,21 @@ public class Condition {
 
     public Condition withOperator(String operator) {
         this.operator = operator;
+        return this;
+    }
+
+    @JsonProperty("dataType")
+    public DataType getDataType() {
+        return dataType;
+    }
+
+    @JsonProperty("dataType")
+    public void setDataType(DataType dataType) {
+        this.dataType = dataType;
+    }
+
+    public Condition withDataType(DataType dataType) {
+        this.dataType = dataType;
         return this;
     }
 
@@ -97,22 +121,26 @@ public class Condition {
         sb.append(Condition.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("columnName");
         sb.append('=');
-        sb.append(((this.columnName == null) ? "<null>" : this.columnName));
+        sb.append(((this.columnName == null)?"<null>":this.columnName));
         sb.append(',');
         sb.append("operator");
         sb.append('=');
-        sb.append(((this.operator == null) ? "<null>" : this.operator));
+        sb.append(((this.operator == null)?"<null>":this.operator));
+        sb.append(',');
+        sb.append("dataType");
+        sb.append('=');
+        sb.append(((this.dataType == null)?"<null>":this.dataType));
         sb.append(',');
         sb.append("values");
         sb.append('=');
-        sb.append(((this.values == null) ? "<null>" : this.values));
+        sb.append(((this.values == null)?"<null>":this.values));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');
-        sb.append(((this.additionalProperties == null) ? "<null>" : this.additionalProperties));
+        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
         sb.append(',');
-        if (sb.charAt((sb.length() - 1)) == ',') {
-            sb.setCharAt((sb.length() - 1), ']');
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
         } else {
             sb.append(']');
         }
@@ -122,10 +150,11 @@ public class Condition {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result * 31) + ((this.additionalProperties == null) ? 0 : this.additionalProperties.hashCode()));
-        result = ((result * 31) + ((this.operator == null) ? 0 : this.operator.hashCode()));
-        result = ((result * 31) + ((this.columnName == null) ? 0 : this.columnName.hashCode()));
-        result = ((result * 31) + ((this.values == null) ? 0 : this.values.hashCode()));
+        result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
+        result = ((result* 31)+((this.operator == null)? 0 :this.operator.hashCode()));
+        result = ((result* 31)+((this.columnName == null)? 0 :this.columnName.hashCode()));
+        result = ((result* 31)+((this.dataType == null)? 0 :this.dataType.hashCode()));
+        result = ((result* 31)+((this.values == null)? 0 :this.values.hashCode()));
         return result;
     }
 
@@ -138,7 +167,7 @@ public class Condition {
             return false;
         }
         Condition rhs = ((Condition) other);
-        return (((((this.additionalProperties == rhs.additionalProperties) || ((this.additionalProperties != null) && this.additionalProperties.equals(rhs.additionalProperties))) && ((this.operator == rhs.operator) || ((this.operator != null) && this.operator.equals(rhs.operator)))) && ((this.columnName == rhs.columnName) || ((this.columnName != null) && this.columnName.equals(rhs.columnName)))) && ((this.values == rhs.values) || ((this.values != null) && this.values.equals(rhs.values))));
+        return ((((((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties)))&&((this.operator == rhs.operator)||((this.operator!= null)&&this.operator.equals(rhs.operator))))&&((this.columnName == rhs.columnName)||((this.columnName!= null)&&this.columnName.equals(rhs.columnName))))&&((this.dataType == rhs.dataType)||((this.dataType!= null)&&this.dataType.equals(rhs.dataType))))&&((this.values == rhs.values)||((this.values!= null)&&this.values.equals(rhs.values))));
     }
 
 }
