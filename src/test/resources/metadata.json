@@ -4,6 +4,8 @@
     {
       "columnName": "",
       "dataType": "",
+      "scale": 4,
+      "precision": 3,
       "required": true,
       "partition": true
     }

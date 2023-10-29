@@ -1,8 +1,8 @@
+
 package io.datadynamics.datalake.sql.model;
 
 import com.fasterxml.jackson.annotation.*;
 
-import javax.annotation.processing.Generated;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +10,8 @@ import java.util.Map;
 @JsonPropertyOrder({
         "columnName",
         "dataType",
+        "scale",
+        "precision",
         "required",
         "partition"
 })
@@ -20,6 +22,12 @@ public class Column {
 
     @JsonProperty("dataType")
     private String dataType;
+
+    @JsonProperty("scale")
+    private Integer scale;
+
+    @JsonProperty("precision")
+    private Integer precision;
 
     @JsonProperty("required")
     private Boolean required;
@@ -57,6 +65,36 @@ public class Column {
 
     public Column withDataType(String dataType) {
         this.dataType = dataType;
+        return this;
+    }
+
+    @JsonProperty("scale")
+    public Integer getScale() {
+        return scale;
+    }
+
+    @JsonProperty("scale")
+    public void setScale(Integer scale) {
+        this.scale = scale;
+    }
+
+    public Column withScale(Integer scale) {
+        this.scale = scale;
+        return this;
+    }
+
+    @JsonProperty("precision")
+    public Integer getPrecision() {
+        return precision;
+    }
+
+    @JsonProperty("precision")
+    public void setPrecision(Integer precision) {
+        this.precision = precision;
+    }
+
+    public Column withPrecision(Integer precision) {
+        this.precision = precision;
         return this;
     }
 
@@ -117,6 +155,14 @@ public class Column {
         sb.append('=');
         sb.append(((this.dataType == null) ? "<null>" : this.dataType));
         sb.append(',');
+        sb.append("scale");
+        sb.append('=');
+        sb.append(((this.scale == null) ? "<null>" : this.scale));
+        sb.append(',');
+        sb.append("precision");
+        sb.append('=');
+        sb.append(((this.precision == null) ? "<null>" : this.precision));
+        sb.append(',');
         sb.append("required");
         sb.append('=');
         sb.append(((this.required == null) ? "<null>" : this.required));
@@ -141,10 +187,12 @@ public class Column {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.partition == null) ? 0 : this.partition.hashCode()));
+        result = ((result * 31) + ((this.dataType == null) ? 0 : this.dataType.hashCode()));
+        result = ((result * 31) + ((this.precision == null) ? 0 : this.precision.hashCode()));
+        result = ((result * 31) + ((this.scale == null) ? 0 : this.scale.hashCode()));
         result = ((result * 31) + ((this.additionalProperties == null) ? 0 : this.additionalProperties.hashCode()));
         result = ((result * 31) + ((this.required == null) ? 0 : this.required.hashCode()));
         result = ((result * 31) + ((this.columnName == null) ? 0 : this.columnName.hashCode()));
-        result = ((result * 31) + ((this.dataType == null) ? 0 : this.dataType.hashCode()));
         return result;
     }
 
@@ -157,7 +205,7 @@ public class Column {
             return false;
         }
         Column rhs = ((Column) other);
-        return ((((((this.partition == rhs.partition) || ((this.partition != null) && this.partition.equals(rhs.partition))) && ((this.additionalProperties == rhs.additionalProperties) || ((this.additionalProperties != null) && this.additionalProperties.equals(rhs.additionalProperties)))) && ((this.required == rhs.required) || ((this.required != null) && this.required.equals(rhs.required)))) && ((this.columnName == rhs.columnName) || ((this.columnName != null) && this.columnName.equals(rhs.columnName)))) && ((this.dataType == rhs.dataType) || ((this.dataType != null) && this.dataType.equals(rhs.dataType))));
+        return ((((((((this.partition == rhs.partition) || ((this.partition != null) && this.partition.equals(rhs.partition))) && ((this.dataType == rhs.dataType) || ((this.dataType != null) && this.dataType.equals(rhs.dataType)))) && ((this.precision == rhs.precision) || ((this.precision != null) && this.precision.equals(rhs.precision)))) && ((this.scale == rhs.scale) || ((this.scale != null) && this.scale.equals(rhs.scale)))) && ((this.additionalProperties == rhs.additionalProperties) || ((this.additionalProperties != null) && this.additionalProperties.equals(rhs.additionalProperties)))) && ((this.required == rhs.required) || ((this.required != null) && this.required.equals(rhs.required)))) && ((this.columnName == rhs.columnName) || ((this.columnName != null) && this.columnName.equals(rhs.columnName))));
     }
 
 }
