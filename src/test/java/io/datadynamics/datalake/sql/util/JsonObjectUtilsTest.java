@@ -8,8 +8,8 @@ public class JsonObjectUtilsTest {
 
     public static void main(String[] args) throws Exception {
 //        DefaultResourceLoader loader = new DefaultResourceLoader();
-//        Resource resource = loader.getResource("classpath:download_request.json");
-//        JsonObjectUtils.convertJsonToJavaClass(resource, "target", "io.datadynamics.datalake.sql.model", "DownloadRequest");
+//        Resource resource = loader.getResource("classpath:metadata.json");
+//        JsonObjectUtils.convertJsonToJavaClass(resource, "target", "io.datadynamics.datalake.sql.model", "Metadata");
 
         QueryRequest queryRequest = JsonObjectUtils.marshalQueryRequest("classpath:query_request.json");
         System.out.println(queryRequest);

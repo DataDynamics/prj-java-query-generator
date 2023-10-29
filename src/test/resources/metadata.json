@@ -1,0 +1,11 @@
+{
+  "tableName": "test.aaa",
+  "columns": [
+    {
+      "columnName": "",
+      "dataType": "",
+      "required": true,
+      "partition": true
+    }
+  ]
+}

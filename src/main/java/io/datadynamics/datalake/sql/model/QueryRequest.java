@@ -81,6 +81,9 @@ public class QueryRequest {
 
     @JsonProperty("selected")
     public List<String> getSelected() {
+        if (selected == null) {
+            selected = new ArrayList<>();
+        }
         return selected;
     }
 
@@ -96,6 +99,9 @@ public class QueryRequest {
 
     @JsonProperty("conditions")
     public List<Condition> getConditions() {
+        if (conditions == null) {
+            conditions = new ArrayList<>();
+        }
         return conditions;
     }
 
@@ -111,6 +117,9 @@ public class QueryRequest {
 
     @JsonProperty("partitions")
     public List<String> getPartitions() {
+        if (partitions == null) {
+            partitions = new ArrayList<>();
+        }
         return partitions;
     }
 

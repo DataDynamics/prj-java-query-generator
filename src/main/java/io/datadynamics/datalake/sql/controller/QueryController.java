@@ -1,15 +1,14 @@
 package io.datadynamics.datalake.sql.controller;
 
 import io.datadynamics.datalake.sql.model.DownloadRequest;
+import io.datadynamics.datalake.sql.model.Metadata;
 import io.datadynamics.datalake.sql.model.QueryRequest;
+import io.datadynamics.datalake.sql.service.MetadataService;
 import io.datadynamics.datalake.sql.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +19,9 @@ public class QueryController {
 
     @Autowired
     QueryService queryService;
+
+    @Autowired
+    MetadataService metadataService;
 
     @Autowired
     JdbcTemplate template;
@@ -34,6 +36,15 @@ public class QueryController {
     @PostMapping("download")
     public ResponseEntity download(@RequestBody DownloadRequest request) {
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("metadata/{tableName}")
+    public ResponseEntity metadata(@PathVariable("tableName") String tableName) {
+        Metadata metadata = metadataService.getMetadata(tableName);
+        if (metadata == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(metadata);
     }
 
 }

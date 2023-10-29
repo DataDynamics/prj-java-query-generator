@@ -63,6 +63,9 @@ public class Condition {
 
     @JsonProperty("values")
     public List<String> getValues() {
+        if (values == null) {
+            values = new ArrayList<>();
+        }
         return values;
     }
 
