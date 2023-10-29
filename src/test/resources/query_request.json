@@ -1,0 +1,39 @@
+{
+  "username": "",
+  "tableName": "test.aaa",
+  "selected": [
+    "A",
+    "B"
+  ],
+  "conditions": [
+    {
+      "columnName": "A",
+      "operator": "IN",
+      "values": [
+        "A1",
+        "A2",
+        "A3"
+      ]
+    },
+    {
+      "columnName": "B",
+      "operator": "EQUAL",
+      "values": [
+        "B1"
+      ]
+    },
+    {
+      "columnName": "C",
+      "operator": "BETWEEN",
+      "values": [
+        "C1",
+        "C2"
+      ]
+    }
+  ],
+  "partitions": [
+    "C"
+  ],
+  "limit": 100,
+  "queryPostfix": "--api"
+}
