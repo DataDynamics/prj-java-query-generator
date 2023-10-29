@@ -1,6 +1,7 @@
-package io.datadynamics.datalake.sql.service.where;
+package io.datadynamics.datalake.sql.service.where.impl;
 
 import io.datadynamics.datalake.sql.model.Condition;
+import io.datadynamics.datalake.sql.service.where.Where;
 import io.datadynamics.datalake.sql.util.ArrayJoiner;
 import org.springframework.util.Assert;
 

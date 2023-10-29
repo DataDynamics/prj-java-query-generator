@@ -1,6 +1,9 @@
 package io.datadynamics.datalake.sql.service.where;
 
 import io.datadynamics.datalake.sql.model.Condition;
+import io.datadynamics.datalake.sql.service.where.impl.BetweenWhere;
+import io.datadynamics.datalake.sql.service.where.impl.EqualWhere;
+import io.datadynamics.datalake.sql.service.where.impl.InWhere;
 
 import java.util.HashMap;
 import java.util.Map;
