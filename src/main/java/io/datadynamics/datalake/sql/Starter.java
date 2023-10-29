@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QueryGeneratorApplication {
+public class Starter {
 
-	public static void main(String[] args) {
-		SpringApplication.run(QueryGeneratorApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Starter.class, args);
+    }
 
 }

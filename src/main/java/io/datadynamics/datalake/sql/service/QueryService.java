@@ -10,6 +10,10 @@ import java.util.List;
 
 public class QueryService {
 
+    public static boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
     public String generateQuery(QueryRequest request) {
         List<String> queryFragments = new ArrayList();
         queryFragments.add(select(request));
@@ -41,10 +45,6 @@ public class QueryService {
 
     private String limit(QueryRequest request) {
         return String.format("LIMIT %s", request.getLimit());
-    }
-
-    public static boolean isNullOrEmpty(String s) {
-        return s == null || s.isEmpty();
     }
 
 }

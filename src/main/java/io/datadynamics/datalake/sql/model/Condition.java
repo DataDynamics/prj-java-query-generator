@@ -1,4 +1,3 @@
-
 package io.datadynamics.datalake.sql.model;
 
 import com.fasterxml.jackson.annotation.*;
