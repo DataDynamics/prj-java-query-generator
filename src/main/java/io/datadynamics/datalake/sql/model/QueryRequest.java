@@ -21,7 +21,6 @@ import java.util.Map;
 public class QueryRequest {
 
     @JsonProperty("username")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String username;
 
     @JsonProperty("tableName")
@@ -34,15 +33,12 @@ public class QueryRequest {
     private List<Condition> conditions = new ArrayList<Condition>();
 
     @JsonProperty("partitions")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<String> partitions = new ArrayList<String>();
 
     @JsonProperty("limit")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer limit;
 
     @JsonProperty("queryPostfix")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String queryPostfix;
 
     @JsonIgnore

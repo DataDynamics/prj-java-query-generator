@@ -20,11 +20,9 @@ public class Condition {
     private String columnName;
 
     @JsonProperty("operator")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String operator;
 
     @JsonProperty("values")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<String> values = new ArrayList<String>();
 
     @JsonIgnore

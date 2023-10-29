@@ -16,14 +16,12 @@ import java.util.Map;
 public class DownloadRequest {
 
     @JsonProperty("username")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String username;
 
     @JsonProperty("tableName")
     private String tableName;
 
     @JsonProperty("tarPath")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String tarPath;
 
     @JsonProperty("imagFileName")

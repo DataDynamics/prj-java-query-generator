@@ -19,15 +19,12 @@ public class Column {
     private String columnName;
 
     @JsonProperty("dataType")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String dataType;
 
     @JsonProperty("required")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean required;
 
     @JsonProperty("partition")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean partition;
 
     @JsonIgnore
