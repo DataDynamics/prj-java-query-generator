@@ -18,7 +18,6 @@ import java.util.Map;
         "limit",
         "queryPostfix"
 })
-@Generated("jsonschema2pojo")
 public class QueryRequest {
 
     @JsonProperty("username")

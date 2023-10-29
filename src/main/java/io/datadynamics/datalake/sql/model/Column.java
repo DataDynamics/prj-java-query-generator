@@ -13,7 +13,6 @@ import java.util.Map;
         "required",
         "partition"
 })
-@Generated("jsonschema2pojo")
 public class Column {
 
     @JsonProperty("columnName")

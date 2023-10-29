@@ -14,7 +14,6 @@ import java.util.Map;
         "operator",
         "values"
 })
-@Generated("jsonschema2pojo")
 public class Condition {
 
     @JsonProperty("columnName")

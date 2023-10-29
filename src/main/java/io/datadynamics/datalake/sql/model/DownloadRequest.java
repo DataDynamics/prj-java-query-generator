@@ -13,7 +13,6 @@ import java.util.Map;
         "tarPath",
         "imagFileName"
 })
-@Generated("jsonschema2pojo")
 public class DownloadRequest {
 
     @JsonProperty("username")

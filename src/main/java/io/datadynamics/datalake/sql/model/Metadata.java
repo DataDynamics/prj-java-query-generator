@@ -13,7 +13,6 @@ import java.util.Map;
         "tableName",
         "columns"
 })
-@Generated("jsonschema2pojo")
 public class Metadata {
 
     @JsonProperty("tableName")
