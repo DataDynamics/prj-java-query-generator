@@ -1,5 +1,6 @@
 package io.datadynamics.datalake.sql.service;
 
+import com.github.vertical_blank.sqlformatter.SqlFormatter;
 import io.datadynamics.datalake.sql.model.QueryRequest;
 import io.datadynamics.datalake.sql.util.JsonObjectUtils;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ public class QueryServiceTest {
         QueryService service = new QueryService();
         String query = service.generateQuery(queryRequest);
 
-        System.out.println(query);
+        System.out.println(SqlFormatter.format(query));
     }
 
 }
